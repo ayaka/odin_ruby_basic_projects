@@ -11,6 +11,8 @@ def wrap_number (n, min)
 end
 
 def caesar_cipher (text, shift)
+    return unless text.is_a? String
+    return unless shift.is_a? Integer
     shift >= 0 ? shift %= 26 : shift = -(shift.abs % 26)
     
     new_text = text.bytes.map do |n|
@@ -25,15 +27,15 @@ def caesar_cipher (text, shift)
         n
     end
 
-    p new_text.map { |n| n.chr }.join
+    new_text.map { |n| n.chr }.join
 end
 
-puts "Please enter a text to encode"
-original_text = gets.chomp
-puts "please enter a number to shift (negative number to shift left)"
-shift_number = gets.chomp.to_i
+# puts "Please enter a text to encode"
+# original_text = gets.chomp
+# puts "please enter a number to shift (negative number to shift left)"
+# shift_number = gets.chomp.to_i
 
-caesar_cipher(original_text, shift_number)
+# caesar_cipher(original_text, shift_number)
 
 # get input from user, the original text and shift index
 # shift index can be any integer including negative
